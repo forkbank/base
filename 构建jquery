@@ -1,0 +1,5 @@
+构建jquery
+根据我们传入的参数构建一个jQuery对象。
+
+* 理清思路
+我们用什么构建jQuery对象，用参数，参数是JavaScript代码。
