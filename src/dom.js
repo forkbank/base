@@ -29,7 +29,7 @@ if (typeof Object.create != 'function') {
   })();
 }
 
-function $$(){
+function $$(selector){
   return _instance();
 }
 $$.prototype = {
