@@ -30,7 +30,7 @@ if (typeof Object.create != 'function') {
 }
 
 function $$(){
-
+  return _instance();
 }
 $$.prototype = {
   splice : [].splice,
@@ -47,9 +47,10 @@ function _getDOMObject(){
 // 返回 jquery 对象
 function _instance(){
   dom = Object.create($$.prototype);
-  dom.length = 1;
+  dom.length = 2;
   dom.content = "aa";
   dom[0] = document.body;
+  dom[1] = document.body;
   return dom;
 }
 

@@ -21,20 +21,18 @@ module.exports = function(config) {
 
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
+    preprocessors: {},
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha'],
 
 
     // web server port
@@ -56,7 +54,21 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome','IE9','IE8','IE7'],
+    browsers: (function(){
+      var browsers = [];
+      if(process.platform == 'darwin'){
+        // mac
+        browsers.push('Safari')
+      }else if(process.platform == 'win32'){
+        // win
+        browsers.push('IE9');
+        browsers.push('IE8');
+        browsers.push('IE8');
+      }
+
+      return browsers;
+    })(),
+
     customLaunchers: {
       IE9: {
         base: 'IE',

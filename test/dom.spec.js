@@ -5,6 +5,9 @@ describe('测试 Dom', function(){
 
   it('_instance', function(){
     expect(_instance().aa).toBe('aa');
-    console.log(_instance())
+  })
+
+  it('_instance2', function(){
+    expect(_instance().aa).toBe('aa');
   })
 })
