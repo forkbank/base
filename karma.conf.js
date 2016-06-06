@@ -61,6 +61,8 @@ module.exports = function(config) {
         browsers.push('Safari')
       }else if(process.platform == 'win32'){
         // win
+        browsers.push('IE11');
+        browsers.push('IE10');
         browsers.push('IE9');
         browsers.push('IE8');
         browsers.push('IE7');
@@ -70,6 +72,14 @@ module.exports = function(config) {
     })(),
 
     customLaunchers: {
+      IE11: {
+        base: 'IE',
+        'x-ua-compatible': 'IE=EmulateIE11'
+      },
+      IE10: {
+        base: 'IE',
+        'x-ua-compatible': 'IE=EmulateIE10'
+      },
       IE9: {
         base: 'IE',
         'x-ua-compatible': 'IE=EmulateIE9'
