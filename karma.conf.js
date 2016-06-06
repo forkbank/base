@@ -63,7 +63,7 @@ module.exports = function(config) {
         // win
         browsers.push('IE9');
         browsers.push('IE8');
-        browsers.push('IE8');
+        browsers.push('IE7');
       }
 
       return browsers;
