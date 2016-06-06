@@ -8,6 +8,27 @@
 // Class 选择器
 // Element 选择器
 
+if (typeof Object.create != 'function') {
+  Object.create = (function() {
+    var Temp = function() {};
+    return function (prototype) {
+      if (arguments.length > 1) {
+        throw Error('Second argument not supported');
+      }
+      if(prototype !== Object(prototype)) {
+        throw TypeError('Argument must be an object');
+      }
+      if (prototype === null) { 
+        throw Error('null [[Prototype]] not supported');
+      }
+      Temp.prototype = prototype;
+      var result = new Temp();
+      Temp.prototype = null;
+      return result;
+    };
+  })();
+}
+
 function $$(){
 
 }
@@ -34,23 +55,3 @@ function _instance(){
 
 var bb = Object.create($$)
 
-if (typeof Object.create != 'function') {
-  Object.create = (function() {
-    var Temp = function() {};
-    return function (prototype) {
-      if (arguments.length > 1) {
-        throw Error('Second argument not supported');
-      }
-      if(prototype !== Object(prototype)) {
-        throw TypeError('Argument must be an object');
-      }
-      if (prototype === null) { 
-        throw Error('null [[Prototype]] not supported');
-      }
-      Temp.prototype = prototype;
-      var result = new Temp();
-      Temp.prototype = null;
-      return result;
-    };
-  })();
-}
